@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="Pagina que realiza previsão de crimes nas cidades do estado de Sao Paulo">
+    <meta name="author" content="Lucas Tavares dos Santos">
+    <title>Previsão</title>
+
+    <!-- Bootstrap core CSS -->
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/bootstrap.min.css') }}">
+    <!-- Custom styles for this template -->
+    <link rel="stylesheet" type = "text/css" href="{{ url_for('static', filename='css/simple-sidebar.css') }}">
+    
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+    <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"> </script>
+    <script type="text/javascript" src="{{ url_for('static', filename = 'js/scripts.js') }}"></script>
+</head>
+<body role="document" style="font-family: proxima;">
+    <div class="d-flex" id="wrapper">
+        <!-- Sidebar -->
+        <div class="bg-light border-right" id="sidebar-wrapper">
+            <div><br></div>
+            <div class="list-group list-group-flush">
+                <a href="index.html" class="list-group-item list-group-item-action bg-light">Home</a>
+                <a href="equipe.html" class="list-group-item list-group-item-action bg-light">Equipe</a>
+                <a href="previsao.html" class="list-group-item list-group-item-action bg-light">Previsão</a>
+            </div>
+        </div>
+        <!-- Page Content -->
+        <div id="page-content-wrapper">
+            <nav class="navbar navbar-expand-lg navbar-light bg-light border-bottom">
+                <h4>Previsão de crimes no estado de São Paulo</h4>
+                <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                    <ul class="navbar-nav ml-auto mt-2 mt-lg-0">
+                        <li class="nav-item active">
+                            <a class="nav-link" href="https://www5.usp.br/">
+                                USP
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="http://www.ssp.sp.gov.br/Estatistica/Pesquisa.aspx">
+                                Dados Estatísticos do Estado de São Paulo
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+            </nav>
+  
+            <div class="container-fluid">
+                <p>Nesta página, são fornecidos parâmetros que podem ser definidos para obter os dados de crimes registrados nas delegacias das cidades do estado de São Paulo. Utilizando esses dados, é utilizado o algoritmo de previsão conhecido como Facebook Prophet, sendo possível obter resultados futuros baseados no que já é conhecido.</p>
+                
+                <form action="/PlotSeries" method="POST">
+                    <div class="container">
+                        <div class="grid-1">
+                            <h2>Anos de Previsão</h2>
+                            <select name="Anos" id="Anos">
+                                <option selected="selected" value="1">1</option>
+                                <option value="2">2</option>
+                                <option value="3">3</option>
+                                <option value="4">4</option>
+                                <option value="5">5</option>
+                                <option value="6">6</option>
+                                <option value="7">7</option>
+                                <option value="8">8</option>
+                                <option value="9">9</option>
+                                <option value="10">10</option>
+                            </select>
+                        </div>
+                      
+                        <div class="grid-2">
+                            <h2>Municípios</h2>
+                            <select name="Municipios" id="Municipios"></select>
+                        </div>
+                      
+                        <div class="grid-3">
+                            <h2>Delegacias</h2>
+                            <select name="Delegacias" id="Delegacias"></select>
+                        </div>
+                      
+                        <div class="grid-4">
+                            <h2>Tipo de crime</h2>
+                            <select name="Crimes" id="Crimes"></select>
+                        </div>
+                        
+                        <div class="grid-5">
+                            <input type="submit" id="mybutton" value="Obter previsão"/>
+                        </div>
+                    </div>
+                    {% if image is defined %}
+                        <img src="{{ image }}" id="myimg" class="center"/>
+                    {% endif %}
+                </form>
+            </div>
+        </div>
+      <!-- /#page-content-wrapper -->
+    </div>
+    <!-- /#sidebar-wrapper -->
+    
+</body>
