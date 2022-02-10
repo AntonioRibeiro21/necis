@@ -19,7 +19,6 @@ from flask_cors import CORS
 
 cors = CORS(app, resources={r"/*": {"origins": "http://localhost:3000"}})
 
-print("yes this is working fine")
 # from fbprophet.diagnostics import cross_validation, performance_metrics
 # import itertools
 
