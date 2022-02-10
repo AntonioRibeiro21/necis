@@ -71,7 +71,7 @@ pyserial==3.4
 pystan==2.19.1.1
 python-apt
 python-dateutil==2.8.2
-python-debian===0.1.36ubuntu1
+python-debian
 pytz==2021.3
 PyYAML==5.3.1
 requests==2.22.0
