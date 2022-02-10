@@ -1,6 +1,6 @@
 #Autor: Lucas Tavares dos Santos
 
-from asyncio.windows_events import NULL
+#from asyncio.windows_events import NULL
 import select
 import matplotlib
 import json
@@ -11,14 +11,15 @@ import matplotlib.pyplot as plt
 import pandas as pd
 from prophet import Prophet
 from flask import Flask, render_template, request
+app = Flask(__name__)
 from getData import getDataAtDB
 import numpy as np
 from datetime import date
 from flask_cors import CORS
 
-
-app = Flask(__name__)
 cors = CORS(app, resources={r"/*": {"origins": "http://localhost:3000"}})
+
+print("yes this is working fine")
 # from fbprophet.diagnostics import cross_validation, performance_metrics
 # import itertools
 
