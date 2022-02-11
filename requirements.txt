@@ -51,7 +51,6 @@ sos
 ssh-import-id
 systemd-python
 twisted
-ubuntu-advantage-tools
 ufw
 unattended-upgrades
 urllib3
