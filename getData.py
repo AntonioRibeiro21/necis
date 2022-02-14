@@ -3,7 +3,7 @@ import psycopg2 as db
 import pandas.io.sql as sqlio
 
 def getDataAtDB(select_mun, select_dp, select_crime):
-    onn = db.connect(host='ec2-54-235-98-1.compute-1.amazonaws.com', database='d1q1uf1agi5jm9', 
+    conn = db.connect(host='ec2-54-235-98-1.compute-1.amazonaws.com', database='d1q1uf1agi5jm9', 
                         user='qyvehyzhrsbxuk', password='7a9e0bdf8f04e97859eeee9bccf4c57e7a9390d0707882f60e7f95d8892a9f54', port='5432')
 
 
@@ -27,7 +27,7 @@ def getDataAtDB(select_mun, select_dp, select_crime):
     return dat
 
 def getDataAno(select_dp, select_ano):
-    onn = db.connect(host='ec2-54-235-98-1.compute-1.amazonaws.com', database='d1q1uf1agi5jm9', 
+    conn = db.connect(host='ec2-54-235-98-1.compute-1.amazonaws.com', database='d1q1uf1agi5jm9', 
                         user='qyvehyzhrsbxuk', password='7a9e0bdf8f04e97859eeee9bccf4c57e7a9390d0707882f60e7f95d8892a9f54', port='5432')
 
 
