@@ -17,7 +17,7 @@ import numpy as np
 from datetime import date
 from flask_cors import CORS
 
-cors = CORS(app, resources={r"/*": {"origins": "https://usp-municipios.vercel.app/"}})
+cors = CORS(app, resources={r"/*": {"origins": "https://usp-municipios.vercel.app"}})
 
 # from fbprophet.diagnostics import cross_validation, performance_metrics
 # import itertools
